@@ -1,7 +1,9 @@
 const addText = function(){
     const timer = document.getElementById("timer");   
         if (timer.textContent <= 0) {
-           alert('Вы победили в конкурсе!');
+            const status = document.getElementById('status');
+            status.textContent = undefined; 
+            alert('Вы победили в конкурсе!');
         } else {
            timer.textContent -= 1;
         }
