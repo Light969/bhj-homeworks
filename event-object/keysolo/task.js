@@ -25,7 +25,27 @@ class Game {
       При неправильном вводе символа - this.fail();
       DOM-элемент текущего символа находится в свойстве this.currentSymbol.
      */
+
+    // console.log(this.currentSymbol);
+    console.log(this.currentSymbol.textContent);
+    // function onKey(k) {
+    //   console.log(k.type, k.code, k.key);
+    // }
+    // document.addEventListener('keydown', onKey);
+    // document.addEventListener('keyup', onKey);
+
+    function onKey(k) {
+      console.log(k.key);
+    }
+    document.addEventListener('keyup', onKey);
+
+    if (document.addEventListener('keyup', onKey) === this.currentSymbol.textContent) {
+      console.log('Hi');
+    }
+
+
   }
+
 
   success() {
     if(this.currentSymbol.classList.contains("symbol_current")) this.currentSymbol.classList.remove("symbol_current");
