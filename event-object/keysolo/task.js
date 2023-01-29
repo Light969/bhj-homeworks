@@ -34,15 +34,31 @@ class Game {
     // document.addEventListener('keydown', onKey);
     // document.addEventListener('keyup', onKey);
 
-    function onKey(k) {
-      console.log(k.key);
+    // function onKey(k) {
+    //   console.log(k.key);
+    //   if (k.key === 'l') {
+    //     console.log('Hi');
+    //   }
+    // }
+    
+    // 1й вариант
+    function onKey(event) {
+      console.log(event.key);
+    if (event.key === this.currentSymbol.textContent) {
+    // if (event.key === 'l') {
+      console.log('Hi');
+      // console.log(this.currentSymbol.textContent);
+      // alert('Hi');
+    }
     }
     document.addEventListener('keyup', onKey);
 
-    if (document.addEventListener('keyup', onKey) === this.currentSymbol.textContent) {
-      console.log('Hi');
-    }
-
+    // 2й вариант
+    // document.addEventListener('keyup', function(onKey) {
+    //   if (onKey.key === this.currentSymbol.textContent) {
+    //       console.log('Hi');  
+    //     }
+    // });
 
   }
 

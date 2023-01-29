@@ -4,15 +4,23 @@ const tab = Array.from(document.getElementsByClassName('tab'));
 const tabContent = Array.from(document.getElementsByClassName('tab__content'));
 // console.log(tabContent);
 
-function getCurrentIndexTab() {
-    for (let i = 0; i < tab.length; i++)
-    if (tab[i].className.includes( 'tab_active' )) {
-        return i; 
-    }
- }
+// function getCurrentIndexTab() {
+//     for (let i = 0; i < tab.length; i++)
+//     if (tab[i].className.includes( 'tab_active' )) {
+//         return i; 
+//     }
+//  }
 // console.log(getCurrentIndexTab());
 // function getCurrentIndexTab() {  // Не получается применить метод 
 //     tab.indexOf(this.className.includes( 'tab_active' ));
+// }
+
+function getCurrentIndexTab() {
+    return tab.findIndex(tab => tab.className.includes( 'tab_active' ));
+}
+
+// function getCurrentIndexTab() {
+//     return tab.indexOf(tab => tab.className.includes( 'tab_active' ));
 // }
 
 function getCurrentIndexTabContent() {
