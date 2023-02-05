@@ -42,26 +42,21 @@ class Game {
     // }
     
     // 1й вариант
+    let that = this; // Добавляем переменную, т.к. внутри функции происходит потеря контекста this
     function onKey(event) {
-      console.log(event.key);
-    if (event.key === this.currentSymbol.textContent) {
-    // if (event.key === 'l') {
-      console.log('Hi');
-      // console.log(this.currentSymbol.textContent);
-      // alert('Hi');
-    }
+      // console.log(event.key);
+      if (event.key === that.currentSymbol.textContent) { // Меняем this на that
+      // if (event.key === 'l') {
+        // console.log('Hi');
+        // console.log(this.currentSymbol.textContent);
+        // alert('Hi');
+        that.success();
+      } else {
+        that.fail();
+      }
     }
     document.addEventListener('keyup', onKey);
-
-    // 2й вариант
-    // document.addEventListener('keyup', function(onKey) {
-    //   if (onKey.key === this.currentSymbol.textContent) {
-    //       console.log('Hi');  
-    //     }
-    // });
-
   }
-
 
   success() {
     if(this.currentSymbol.classList.contains("symbol_current")) this.currentSymbol.classList.remove("symbol_current");
