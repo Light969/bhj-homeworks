@@ -1,0 +1,176 @@
+﻿
+
+
+const menuSub = document.querySelectorAll('.menu_sub');              
+for (let i = 0; i < menuSub.length; i++) {                         
+  const menuItem = menuSub[i].closest('.menu__item'); 
+    menuItem.onclick = function() {
+      const activeSubMenu = document.querySelector('.menu_active');                           
+      if (activeSubMenu != null && activeSubMenu != menuSub[i]) { // открытое подменю существует и не является тем, по которому был клик
+        activeSubMenu.classList.remove('menu_active'); // закрываем предыдущее подменю
+        menuSub[i].classList.add('menu_active'); // открываем новое подменю
+        return false;
+      }
+    menuSub[i].classList.toggle('menu_active');
+    return false;
+    }
+}
+
+
+
+
+const menuSub = document.querySelectorAll('.menu_sub');              
+for (let i = 0; i < menuSub.length; i++) {                         
+  const menuItem = menuSub[i].closest('.menu__item');              
+  menuItem.onclick = function() {
+    // console.log(menuItem.closest('.menu_sub'));
+    // alert(menuItem.closest('.menu_sub'));
+    if (menuItem.closest('.menu_sub') != null) {
+      return false;
+    } else {
+    const activeSubMenu = document.querySelector('.menu_active'); 
+    // if (activeSubMenu != null && activeSubMenu != menuSub[i] && menuItem.closest('.menu_sub') === null)                            
+    if (activeSubMenu != null && activeSubMenu != menuSub[i]) { // открытое подменю существует и не является тем, по которому был клик
+      activeSubMenu.classList.remove('menu_active'); // закрываем предыдущее подменю
+      menuSub[i].classList.add('menu_active'); // открываем новое подменю
+      return false;
+    }
+  menuSub[i].classList.toggle('menu_active');
+  return false;
+    }
+  }
+}
+
+const menuSub = document.querySelectorAll('.menu_sub');              
+for (let i = 0; i < menuSub.length; i++) {                         
+  const menuItem = menuSub[i].closest('.menu__item');              
+  menuItem.onclick = function() {
+    if (menuItem.closest('.menu_sub') === null) {
+    const activeSubMenu = document.querySelector('.menu_active'); 
+      // if (activeSubMenu != null && activeSubMenu != menuSub[i] && menuItem.closest('.menu_sub') === null)                            
+      if (activeSubMenu != null && activeSubMenu != menuSub[i]) { // открытое подменю существует и не является тем, по которому был клик
+        activeSubMenu.classList.remove('menu_active'); // закрываем предыдущее подменю
+        menuSub[i].classList.add('menu_active'); // открываем новое подменю
+        console.log(menuItem.closest('.menu_sub'));
+        return false;
+      }
+	  menuSub[i].classList.toggle('menu_active');
+	  return false;
+    }
+  }
+}
+
+
+
+
+// const menuSub = document.querySelectorAll('.menu_sub');              
+// for (let i = 0; i < menuSub.length; i++) {                         
+//   const menuItem = menuSub[i].closest('.menu__item');              
+//     menuItem.onclick = function() {
+//       const activeSubMenu = document.querySelector('.menu_active');                             
+//     //   for (let i = 0; i < menuSub.length; i++) {
+//         if (activeSubMenu != null && activeSubMenu !== menuSub[i]) { // открытое подменю существует и не является тем, по которому был клик
+//           activeSubMenu.classList.remove('menu_active'); // закрываем предыдущее подменю
+//           menuSub[i].classList.add('menu_active'); // открываем новое подменю
+//           return false;
+//         }
+//     //   } 
+// 	menuSub[i].classList.toggle('menu_active');
+// 	return false;
+//     }
+// }
+
+
+
+// const menuSub = document.querySelectorAll('.menu_sub');              
+// for (let i = 0; i < menuSub.length; i++) {                         
+//   const menuItem = menuSub[i].closest('.menu__item');              
+//     menuItem.onclick = function() {
+//       const activeSubMenu = document.querySelector('.menu_active');
+// 	  // alert(activeSubMenu);                              
+//       for (let i = 0; i < menuSub.length; i++) {
+//         if (activeSubMenu != null) {
+//         // alert('В 1м if');
+//           activeSubMenu.classList.remove('menu_active');	
+//         };
+//         if (activeSubMenu === menuSub[i]) {
+//         // alert('Во 2м if');
+//           menuSub[i].classList.add('menu_active');
+//           return;
+//         }	 
+//       } 
+// 	// alert('В toggle');
+// 	menuSub[i].classList.toggle('menu_active');
+// 	return false;
+//     }
+// }  
+
+
+// const menuSub = document.querySelectorAll('.menu_sub');
+// for (let i = 0; i < menuSub.length; i++) {
+//   const menuItem = menuSub[i].closest('.menu__item');
+//   menuItem.onclick = function() {
+//     for (let i = 0; i < menuSub.length; i++) {
+//       if (menuSub[i].className.includes('menu_active')) {
+//       menuSub[i].classList.remove('menu_active');
+//       return;
+//       }
+//     }           
+//     menuSub[i].classList.toggle('menu_active');
+//     return false;
+//   }
+// }
+
+// const menuLink = Array.from(document.querySelectorAll('.menu__link'));
+//     for (let i = 0; i < menuLink.length; i++) {
+//  
+
+
+
+
+// const menuLink = document.getElementsByClassName("menu__link");  В данном случае одно и то же, 
+// что и ниже 
+// const menuLink = document.querySelectorAll(".menu__link");
+
+// const menuLink = [...document.querySelectorAll(".menu__link")]; То же самое, что и ниже
+
+
+
+const menuLink = Array.from(document.querySelectorAll('.menu__link'));
+    for (let i = 0; i < menuLink.length; i++) {
+        // console.log(menuLink);
+        menuLink[i].onclick = function() {
+            const menu = menuLink[i].closest('.menu');
+            if (menu === undefined) { 
+                return 
+            }
+            menu.classList.toggle('menu_active');
+            return false;
+        }
+    }
+
+// const menuLink = Array.from(document.querySelectorAll('.menu__link'));
+// menuLink.forEach((element) => {
+//             element.onclick = function() {
+//                 const menu = element.closest('.menu');
+//                 if (!menu) { 
+//                     return 
+//                 }
+//                 menu.classList.toggle('menu_active');
+//                 return false;
+//             }
+// }
+// );
+
+
+
+
+
+_______________________________
+// function getCurrentIndex() {
+//     const activeItem = {...document.getElementsByClassName('slider__item_active')};  //{} ... .slider__item_active
+//     return sliderItems.findIndex(item => item === activeItem);
+// }
+
+// const activeItem = {...document.getElementsByClassName( 'slider__item_active' )};
+// console.log(activeItem);
