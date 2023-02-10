@@ -1,6 +1,3 @@
-// const dropdownLink = Array.from(document.querySelectorAll('.dropdown__link'));
-// console.log(dropdownLink);
-
 const dropdownValue = document.querySelector('.dropdown__value');
 
 dropdownValue.onclick = function() {
@@ -11,12 +8,26 @@ dropdownValue.onclick = function() {
 
 const dropdownItem = Array.from(document.querySelectorAll('.dropdown__item'));
 
-
 for (let i = 0; i < dropdownItem.length; i++) {
-    dropdownItem[i].addEventListener( "click" , function() {
-    // alert('Hi!')
-    dropdownValue.textContent = "Hi";
-    // return false;
-        
-    });
+    dropdownItem[i].onclick = function() {
+      // console.log(dropdownItem[i]);
+      const dropdownLink = dropdownItem[i].querySelector('.dropdown__link');    
+      // console.log(dropdownLink.textContent);
+      dropdownValue.textContent = dropdownLink.textContent;
+      const dropdownList = document.querySelector('.dropdown__list');
+      dropdownList.classList.toggle('dropdown__list_active');
+      return false;  
+    };
 }
+
+// 2й Вариант решения.
+
+// for (let i = 0; i < dropdownItem.length; i++) {
+//     dropdownItem[i].addEventListener( "click" , function() {
+//       const dropdownLink = dropdownItem[i].querySelector('.dropdown__link');    
+//       dropdownValue.textContent = dropdownLink.textContent;
+//       const dropdownList = document.querySelector('.dropdown__list');
+//       dropdownList.classList.toggle('dropdown__list_active');
+//       event.preventDefault();
+//     }); 
+// }
