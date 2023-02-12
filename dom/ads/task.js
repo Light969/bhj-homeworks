@@ -14,7 +14,7 @@ function next() {
 }
 
 function changeСase(current, active) {
-  rotatorСase[current].classList.remove('rotator__case_activee');
+  rotatorСase[current].classList.remove('rotator__case_active');
   rotatorСase[active].classList.add('rotator__case_active');
 }
 

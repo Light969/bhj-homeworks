@@ -1,32 +1,41 @@
 const reveal = Array.from(document.getElementsByClassName('reveal'));
-// console.log(reveal);
 for (let i = 0; i < reveal.length; i++) {
-    function isVisible(element) {
-        // const top = element.getBoundingClientRect().top;
-        // const bottom = element.getBoundingClientRect().bottom;
-        // Одно и то же.
-        const { top, bottom } = element.getBoundingClientRect();
-        // console.log(top);
-        // console.log(bottom);
-        if (bottom < 0) {
-            reveal[i].classList.remove('reveal_active');
-            console.log('By');
-            return;
+    function isVisible(reveal) {
+        const { innerHeight } = window;
+        const { top } = reveal.getBoundingClientRect();
+        if (top < innerHeight && top > 0) {
+        reveal.classList.add("reveal_active");
+        } else {
+        reveal.classList.remove("reveal_active");
         }
-        if (top > window.innerHeight) {
-            reveal[i].classList.remove('reveal_active');
-            console.log('By');
-            return;
-        }
-        reveal[i].classList.add('reveal_active');
-        console.log('Hi');
-        return;
     }
-    setInterval(() => {
-        console.log(isVisible(reveal[i]))
-    }, 1000);
+    document.addEventListener('scroll', () => isVisible(reveal[i]));
 }
 
-// window.addEventListener('scroll', isVisible(reveal[0]));
-// isVisible(reveal[0]);
-// window.scroll = isVisible(reveal[0]);
+// 2й вариант решения
+// const reveal = Array.from(document.getElementsByClassName('reveal'));
+// // console.log(reveal);
+// for (let i = 0; i < reveal.length; i++) {
+//     function isVisible(element) {
+//         // const top = element.getBoundingClientRect().top;
+//         // const bottom = element.getBoundingClientRect().bottom;
+//         // Одно и то же.
+//         const { top, bottom } = element.getBoundingClientRect();
+//         // console.log(top);
+//         // console.log(bottom);
+//         if (bottom < 0) {
+//             reveal[i].classList.remove('reveal_active');
+//             console.log('By');
+//             return;
+//         }
+//         if (top > window.innerHeight) {
+//             reveal[i].classList.remove('reveal_active');
+//             console.log('By');
+//             return;
+//         }
+//         reveal[i].classList.add('reveal_active');
+//         console.log('Hi');
+//         return;
+//     }
+//     document.addEventListener('scroll', (event) => isVisible(reveal[i]));
+// }
