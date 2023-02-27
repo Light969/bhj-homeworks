@@ -1,30 +1,45 @@
 const interests = [...document.querySelectorAll('.interests')];
-let checkbox = [];
-for (let i = 0; i <= interests.length-1; i++) {
+// console.log(interests);
+for (let i = 1; i < interests.length; i++) {
     const interest = interests[i].closest('.interest');
-    console.log(interest);
-    if (interest != null) {
-        checkbox.push(interest);
-    }
-}
-console.log(checkbox);
-
-for (let i = 0; i <= checkbox.length-1; i++) {
-    checkbox[i].onchange = function() {
-        // console.log([...checkbox[i].querySelectorAll('.interest__check')]);
-        // console.log(checkbox[i].querySelectorAll('.interest__check')[1]);
-        if (checkbox[i].checked = true) {
-            // checkbox[i].querySelectorAll('.interest__check')[1].checked = true;
-            // checkbox[i].querySelectorAll('.interest__check')[2].checked = true;
-            [...checkbox[i].querySelectorAll('.interest__check')].forEach(element => {
+    // console.log(interest);
+    const label = interest.querySelector('label');
+    // console.log(label);
+    const interestCheck = label.querySelector('.interest__check');
+    // interestCheck.addEventListener('change', () => {console.log(interestCheck.checked)});
+    interestCheck.addEventListener('change', () => {
+        if (interestCheck.checked === true) {
+            // console.log('Hi'); 
+            [...interests[i].querySelectorAll('.interest__check')].forEach(element => {
                 element.checked = true;
             });
-        }; 
-        if (checkbox[i].checked = false) {
-            [...checkbox[i].querySelectorAll('.interest__check')].forEach(element => {
+        };
+        if (interestCheck.checked === false) {
+            // console.log('By'); 
+            [...interests[i].querySelectorAll('.interest__check')].forEach(element => {
                 element.checked = false;
             });
         }
-    }
+    });
 }
+
+
+
+
+
+
+
+
+
+
+
+
+// let checkbox = [];
+//     if (interest != null) {
+//         checkbox.push(interest);
+//     }
+// console.log(checkbox);
+
+
+
 

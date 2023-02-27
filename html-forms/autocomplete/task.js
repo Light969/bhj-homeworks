@@ -85,7 +85,7 @@ class Autocomplete {
 	//console.log(this.input.options);
 	
 	let arr = [];
-	const options = [...document.querySelectorAll('option')];
+  const options = document.querySelectorAll('option');
 	//console.log(options);
 	//const us = options[1];
 	//console.log({text: us.text, value: us.value});
