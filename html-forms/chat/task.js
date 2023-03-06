@@ -34,7 +34,9 @@ function onKey(event) {
     </div>`
     );
     robot();
+    chatWidgetInput.value = "";
   }
+  
 }
 
 function robot() {
@@ -42,11 +44,24 @@ function robot() {
   <div class="message">
     <div class="message__time">${getCurrentFormattedTime()}</div>
     <div class="message__text">
-      Добрый день, мы ещё не проснулись. Позвоните через 10 лет
+    ${autocomplete[getRandomInt(7)]}
     </div>
   </div>
 `;
 }
 
-  
+function getRandomInt(max) {
+  return Math.floor(Math.random() * max);
+}
+// console.log(getRandomInt(7));
+
+let autocomplete = [
+  'Вы не купили не одного товара, чтобы нам писать.',
+  'Кто тут?',
+  'Где Ваша совесть?',
+  'К сожалению все операторы заняты. Не пишите нам больше!',
+  'Добрый день! До свидания!',
+  'Мы ничего не будем Вам продавать.',
+  'Добрый день, мы ещё не проснулись. Позвоните через 10 лет.'
+];
 
