@@ -1,7 +1,7 @@
 const product = Array.from(document.getElementsByClassName('product'));
 //console.log(product);
 const cartProducts = document.querySelector('.cart__products');
-// console.log(cartProducts);
+//console.log(cartProducts);
 for (let i = 0; i < product.length; i++) {
 	const productQuantityControlInc = product[i].querySelector('.product__quantity-control_inc');
 	const productQuantityControlDec = product[i].querySelector('.product__quantity-control_dec');
@@ -23,32 +23,25 @@ for (let i = 0; i < product.length; i++) {
 		let count = productQuantityValue.textContent;
 		let dataId = product[i].getAttribute('data-id');
 		let mg = product[i].getElementsByTagName('img');
-		// let src = product[i].getElementsByTagName('img').getAttribute('src');
-		// let s = mg.getAttribute('src');
+		//let src = product[i].getElementsByTagName('img').getAttribute('src');
+		//let src = img.getAttribute('src');
 		
-		let cartProduct = [...cartProducts.querySelectorAll('.cart__product')];
-		console.log(cartProduct);
-		if (cartProduct.find(product => product.getAttribute('data-id') === dataId)) {
-			// console.log('Hi');
-			let cartProductFind = cartProduct.find(product => product.getAttribute('data-id') === dataId);
-			const cartProductCount = cartProductFind.querySelector('.cart__product-count');
-			cartProductCount.textContent = Number(cartProductCount.textContent) + Number(`${count}`);
-		} else {
-			cartProducts.insertAdjacentHTML('afterBegin', `
-			<div class="cart__product" data-id=${dataId}>
-			  <img class="cart__product-image" src="image.png">
-			  <div class="cart__product-count">${count}</div>
-			</div>`);
-		};               
+		cartProducts.insertAdjacentHTML('afterBegin', '<div class="cart__product" data-id="8"><img class="cart__product-image" src="image.png"><div class="cart__product-count">20</div></div>');
+		const cartProductCount = cartProducts.querySelector('.cart__product-count');
+		cartProductCount.textContent = count;
+		const cartProductId = cartProducts.querySelector('.cart__product');
+		cartProductId.setAttribute('data-id', dataId);
+		//const cartId = cartProductId.getAttribute('data-id');
+		
 		
 		// console.log(cartProducts);
-		// console.log(count);
-        // console.log(dataId);
-		// console.log(mg);
-		// console.log(s);
+		//console.log(count);
+        //console.log(dataId);
+		//console.log(mg);
 		// console.log(cartProductCount);
 		// console.log(cartProductId);
-		// console.log(cartId);
+		//console.log(cartId);
 	}
 }
+
 

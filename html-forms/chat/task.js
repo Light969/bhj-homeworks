@@ -36,7 +36,6 @@ function onKey(event) {
     robot();
     chatWidgetInput.value = "";
   }
-  
 }
 
 function robot() {
