@@ -22,21 +22,20 @@ for (let i = 0; i < product.length; i++) {
 	productAdd.onclick = function() {
 		let count = productQuantityValue.textContent;
 		let dataId = product[i].getAttribute('data-id');
-		let mg = product[i].getElementsByTagName('img');
+		let img = product[i].querySelector('.product__image').getAttribute('src');
 		// let src = product[i].getElementsByTagName('img').getAttribute('src');
 		// let s = mg.getAttribute('src');
 		
 		let cartProduct = [...cartProducts.querySelectorAll('.cart__product')];
-		console.log(cartProduct);
+		// console.log(cartProduct);
 		if (cartProduct.find(product => product.getAttribute('data-id') === dataId)) {
-			// console.log('Hi');
 			let cartProductFind = cartProduct.find(product => product.getAttribute('data-id') === dataId);
 			const cartProductCount = cartProductFind.querySelector('.cart__product-count');
 			cartProductCount.textContent = Number(cartProductCount.textContent) + Number(`${count}`);
 		} else {
 			cartProducts.insertAdjacentHTML('afterBegin', `
 			<div class="cart__product" data-id=${dataId}>
-			  <img class="cart__product-image" src="image.png">
+			  <img class="cart__product-image" src=${img}>
 			  <div class="cart__product-count">${count}</div>
 			</div>`);
 		};               
@@ -44,7 +43,7 @@ for (let i = 0; i < product.length; i++) {
 		// console.log(cartProducts);
 		// console.log(count);
         // console.log(dataId);
-		// console.log(mg);
+		// console.log(img);
 		// console.log(s);
 		// console.log(cartProductCount);
 		// console.log(cartProductId);

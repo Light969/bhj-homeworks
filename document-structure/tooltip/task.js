@@ -1,5 +1,5 @@
 const hasTooltip = Array.from(document.querySelectorAll('.has-tooltip'));
-hasTooltip.forEach(tool => tool.insertAdjacentHTML('afterBegin', '<div class="tooltip" style="left: 0; top: 0">Проверка</div>'));
+hasTooltip.forEach(tool => tool.insertAdjacentHTML('afterend', '<div class="tooltip" style="left: 0; top: 0">Проверка</div>'));
 
 hasTooltip.forEach(tool => {tool.onclick = function() {
 	const coordinates = tool.getBoundingClientRect();
@@ -9,14 +9,11 @@ hasTooltip.forEach(tool => {tool.onclick = function() {
 	// console.log(y);
 	const title = tool.getAttribute('title');
 	// console.log(title);
-	const tooltip = tool.querySelector('.tooltip');
+	const tooltip = tool.nextElementSibling;
 	// console.log(tooltip);
 	tooltip.classList.toggle('tooltip_active');
-	// const style = tooltip.getAttribute('style');
-    // console.log(style);
-	tooltip.setAttribute('style', `left: ${x}, top: ${y}`);
-	//style.left = x;
-	//style.top = y;
+	tooltip.setAttribute('style', `left: ${x}px; top: ${y + 20}px`);
 	tooltip.textContent = `${title}`;
-    console.log(tooltip);
+	// console.log(hasTooltip[0]);
 	return false;}});
+	
