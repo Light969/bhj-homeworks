@@ -14,7 +14,7 @@ document.forms.form.addEventListener('submit', (e) => {
 
     // Ждём завершения: неважно, успешного или нет
     xhr.onloadend = function() {
-      if (xhr.status == 201) {
+      if (xhr.status == 200) {
         console.log("Успех");
       } else {
         console.log("Ошибка " + this.status);
@@ -30,7 +30,3 @@ document.forms.form.addEventListener('submit', (e) => {
     xhr.send(formData);
 
 });
-
-
-
-
