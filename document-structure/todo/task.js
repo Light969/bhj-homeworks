@@ -4,6 +4,7 @@ const button = document.querySelector('button');
 
 button.addEventListener('click', (event) => {
   const taskInputValidate = (taskInput.value).trim();
+  event.preventDefault();
   if (taskInputValidate !== '') {
     tasksList.insertAdjacentHTML('beforeend', `
     <div class="task">
@@ -16,15 +17,12 @@ button.addEventListener('click', (event) => {
 
     const task = Array.from(tasksList.getElementsByClassName('task'));
 
-    for (let i = 0; i < task.length; i++) {
-    const taskRemove = task[i].querySelector('.task__remove');
+    const taskRemove = task.at(-1).querySelector('.task__remove');
       taskRemove.onclick = function() {
-          task[i].remove();
+        task.at(-1).remove();
       }
-    }
 
     taskInput.value = "";
-    event.preventDefault();
   }
 });
 
