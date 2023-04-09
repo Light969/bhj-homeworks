@@ -1,0 +1,48 @@
+const textarea = document.getElementById('editor');
+console.log(textarea);
+
+const storedText = localStorage.getItem('text');
+
+if (storedText) {
+	alert('Hi');
+	console.log(storedText);
+	textarea.value = storedText;
+} else {
+	alert('By');
+	let text = textarea.value;
+	localStorage.setItem('text', text);
+}
+
+
+
+
+
+
+
+
+
+//function saveText(text) {
+//	localStorage.text = JSON.stringify(text);
+//}
+//saveText(text);
+//function getText(text) {
+//	return JSON.parse(localStorage.text);
+//}
+//getText(text);
+
+textarea.addEventListener('keyup', onKey);
+function onKey(event) {
+  let text = textarea.value;
+  if (event.keyCode === 13) {
+	  console.log(textarea.value);
+	  console.log(text);
+//    chatWidgetMessages.insertAdjacentHTML('beforeend', `
+//    <div class="message message_client">
+//      <div class="message__time">${getCurrentFormattedTime()}</div>
+//      <div class="message__text">${textarea.value}</div>
+//    </div>`
+//   );
+//    robot();
+//    textarea.value = "";
+  }
+}

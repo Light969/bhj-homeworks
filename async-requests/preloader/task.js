@@ -1,8 +1,10 @@
 const loader = document.querySelector('.loader');
 // const item = Array.from(document.getElementsByClassName('item'));
-const item = document.querySelector('.item');
+// 1й вариант - Отображение валют в строке.
+// const item = document.querySelector('.item');
+// 2й вариант - Отображение валют в столбце.
+const item = document.querySelector('#items');
 // console.log(item);
-
 
 const xhr = new XMLHttpRequest();
 xhr.addEventListener('readystatechange', () => {
