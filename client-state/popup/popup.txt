@@ -1,3 +1,4 @@
+//пример из лекции
 const modalMain = document.querySelector('.modal');
 modalMain.className = "modal modal_active";
 
@@ -24,3 +25,9 @@ function getCookie(name) {
 }
 
 console.log(getCookie('name'));
+
+
+
+
+
+

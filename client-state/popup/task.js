@@ -2,25 +2,23 @@ const modalMain = document.querySelector('.modal');
 modalMain.className = "modal modal_active";
 
 const modalClose = document.querySelector('.modal__close');
-    modalClose.onclick = function() {
-        modalMain.className = "modal";   
-    }
-	
-console.log(document.cookie);
+modalClose.onclick = function() {
+	var date = new Date(new Date().getTime() + 60 * 1000);
+    document.cookie = "hide_popup=yes; path=/; expires=" + date.toUTCString();
 
-setCookie('name', 'Mike');
-setCookie('year', 2023);
-
-console.log(document.cookie);
-
-function setCookie(name, value) {
-	document.cookie = name + '=' + encodeURIComponent(value);
+    modalMain.className = "modal";
 }
 
 function getCookie(name) {
-	const pairs = document.cookie.split('; ');
-	const cookie = pairs.find(p => p.startsWith(name + '='));
-	return cookie.substr(name.length + 1);
+	let pairs = document.cookie.split('; ');
+	let cookie_obj = {};
+        for (let i=0; i<pairs.length; i++) {
+            let nv = pairs[i].split('=');
+            cookie_obj[nv[0]] = nv[1]; 
+        }
+        return cookie_obj[name];
 }
 
-console.log(getCookie('name'));
+if ( getCookie('hide_popup') == 'yes' ) {
+	modalMain.className = "modal";
+}
