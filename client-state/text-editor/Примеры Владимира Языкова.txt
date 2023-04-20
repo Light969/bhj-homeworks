@@ -1,0 +1,47 @@
+1й пример
+https://codepen.io/neizerth/pen/oNMpWRX?editirs=1010
+
+HTML-файл
+<textarea id="editor" cols="30" rows="10"></textarea>
+
+JS-файл
+function restore(container) {
+  const json = localStorage.editorData;
+  if (!json) {
+    return;
+  }
+  const data = JSON.parse(json);
+  const { text } = data;
+  
+  const { length } = text
+  const speed = 100;
+  let delay = 0;
+  
+  for (let i = 0; i < length; i++) {
+    
+    delay += speed;
+    
+    setTimeout(() => {
+      const currentText = text.slice(0, i + 1);
+      container.value = currentText
+    }, delay);
+    
+  }
+}
+
+function save(text) {
+  localStorage.editorData = JSON.stringify({
+    text
+  });
+}
+
+const editor = document.querySelector('#editor');
+
+restore(editor);
+
+editor.addEventListener('keyup', e => {
+  const text = e.target.value;
+  
+  save(text);
+});
+

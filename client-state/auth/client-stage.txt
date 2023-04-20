@@ -44,7 +44,7 @@ signinForm.addEventListener('submit', (e) => {
 		        user.insertAdjacentHTML('afterBegin', `${localStorage.getItem('user')}`);
 	
 			} else {
-				alert('РќРµРІРµСЂРЅС‹Р№ Р»РѕРіРёРЅ/РїР°СЂРѕР»СЊ');
+				alert('Неверный логин/пароль');
 			};
 		}
 	});
@@ -54,3 +54,28 @@ signinForm.addEventListener('submit', (e) => {
 
 
 
+
+
+//Number(`${count}`);
+
+//Пример из лекции 9
+
+//signinForm.addEventListener('submit', (e) => {
+//	var formData = new FormData(signinForm);
+//	var request = new XMLHttpRequest();
+//	request.open('POST', 'process.php');
+//	request.addEventListener('readystatechange', function() {
+//		if (this.readyState === request.DONE) {
+//			
+//			var data = JSON.parse(this.responseText);
+//			var output = '<ul>';
+//			for (var key in data) {
+//				output += '<li><b>' + key + "</b>" + data[key] + '</li>';
+//			}
+//			output += '</ul>';
+//			document.getElementById('result').innerHTML = output;
+//		}
+//	});
+//	request.send(formData);
+//	e.preventDefault();
+//});  
